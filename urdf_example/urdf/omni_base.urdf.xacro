@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<robot name="omni_base" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.01575" rpy="0 0 0"/>
+  </joint>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 1.570796"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.08" radius="0.12"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_joint_1" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_link_1"/>
+    <origin xyz="0.068 -0.117779 0.03925" rpy="1.570796 0 0.523598"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+
+  <link name="wheel_link_1">
+    <visual>
+      <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://urdf_example/meshes/wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="light_black">
+        <color rgba="0.4 0.4 0.4 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.018" radius="0.033"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_joint_2" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_link_2"/>
+    <origin xyz="0.068 0.117779 0.03925" rpy="1.570796 0 2.61799"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="wheel_link_2">
+    <visual>
+      <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://urdf_example/meshes/wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="light_black">
+        <color rgba="0.4 0.4 0.4 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.018" radius="0.033"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wheel_joint_3" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_link_3"/>
+    <origin xyz="-0.136 0.0 0.03925" rpy="0 -1.570796 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="wheel_link_3">
+    <visual>
+      <origin xyz="0 0 -0.03" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://urdf_example/meshes/wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="light_black">
+        <color rgba="0.4 0.4 0.4 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.018" radius="0.033"/>
+      </geometry>
+    </collision>
+  </link>
+
+</robot>
